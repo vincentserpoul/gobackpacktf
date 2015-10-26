@@ -14,10 +14,10 @@ func TestGetMarketPrices(t *testing.T) {
 	apiKey := "123"
 	appID := uint32(730)
 	expectedValidItemPrices := map[string]ItemPrice{
-		"AK-47 | Aquamarine Revenge (Factory New)":              ItemPrice{LastUpdated: int(1445860816), Quantity: int(27), Value: int(5516)},
-		"AK-47 | Cartel (Well-Worn)":                            ItemPrice{LastUpdated: int(1445860816), Quantity: int(53), Value: int(306)},
-		"★ StatTrak™ Shadow Daggers | Urban Masked (Well-Worn)": ItemPrice{LastUpdated: int(1445862648), Quantity: int(2), Value: int(12690)},
-		"AK-47 | Aquamarine Revenge (Battle-Scarred)":           ItemPrice{LastUpdated: int(1445860816), Quantity: int(85), Value: int(1249)},
+		"AK-47 | Aquamarine Revenge (Factory New)":              ItemPrice{LastUpdated: int64(1445860816), Quantity: int(27), Value: int(5516)},
+		"AK-47 | Cartel (Well-Worn)":                            ItemPrice{LastUpdated: int64(1445860816), Quantity: int(53), Value: int(306)},
+		"★ StatTrak™ Shadow Daggers | Urban Masked (Well-Worn)": ItemPrice{LastUpdated: int64(1445862648), Quantity: int(2), Value: int(12690)},
+		"AK-47 | Aquamarine Revenge (Battle-Scarred)":           ItemPrice{LastUpdated: int64(1445860816), Quantity: int(85), Value: int(1249)},
 	}
 
 	cases := []struct {

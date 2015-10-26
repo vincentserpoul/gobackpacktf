@@ -17,15 +17,15 @@ type Result struct {
 type Response struct {
 	Success     int                  `json:"success"`
 	Message     string               `json:"message"`
-	CurrentTime int                  `json:"current_time"`
+	CurrentTime int64                `json:"current_time"`
 	Items       map[string]ItemPrice `json:"items"`
 }
 
 // ItemPrice are the items keyed by market hash names. quantity is the qty in the market
 type ItemPrice struct {
-	LastUpdated int `json:"last_updated"`
-	Quantity    int `json:"quantity"`
-	Value       int `json:"value"`
+	LastUpdated int64 `json:"last_updated"`
+	Quantity    int   `json:"quantity"`
+	Value       int   `json:"value"`
 }
 
 // GetMarketPrices will retrieve prices from the url
