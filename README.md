@@ -2,4 +2,7 @@
 # gobackpacktf
 allows you to communicate with http://backpack.tf/api/IGetMarketPrices/v1
 
+* removed one argument for the URL
+
+
 Just import and enjoy!

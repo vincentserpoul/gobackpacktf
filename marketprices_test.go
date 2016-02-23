@@ -75,3 +75,20 @@ func TestTimeOutGetMarketPrices(t *testing.T) {
 		t.Errorf("GetMarketPrices(): didn't trigger an error whereas it should have")
 	}
 }
+
+func BenchmarkGetMarketPrices(b *testing.B) {
+	apiKey := "123"
+	appID := uint32(730)
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		fmt.Fprintf(w, GetMockIGetMarketPrices())
+	}))
+	defer ts.Close()
+	BackpacktfAPIURL = ts.URL
+
+	for i := 0; i < b.N; i++ {
+		GetMarketPrices(apiKey, appID)
+	}
+
+}
