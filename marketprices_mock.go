@@ -47,7 +47,7 @@ func GetMockKOIGetMarketPrices() string {
     `
 }
 
-// GetMockIGetMarketPrices will return a mock of http://backpack.tf/api/IGetMarketPrices/v1/
+// GetMockBadJSONIGetMarketPrices will return a mock of http://backpack.tf/api/IGetMarketPrices/v1/
 func GetMockBadJSONIGetMarketPrices() string {
 	return `
       "response": {
