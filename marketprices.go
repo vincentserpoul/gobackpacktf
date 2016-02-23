@@ -28,11 +28,11 @@ type ItemPrice struct {
 	Value       int   `json:"value"`
 }
 
-// ProductionBackpacktfAPIURL is the existing API URL for backpacktf
-const ProductionBackpacktfAPIURL = "http://backpack.tf/api/IGetMarketPrices/v1"
+// BackpacktfAPIURLProduction is the existing API URL for backpacktf
+const BackpacktfAPIURLProduction = "http://backpack.tf/api/IGetMarketPrices/v1"
 
 // BackpacktfAPIURL is a global variable that contains the backpacktf URL
-var BackpacktfAPIURL = ProductionBackpacktfAPIURL
+var BackpacktfAPIURL = BackpacktfAPIURLProduction
 
 // GetMarketPrices will retrieve prices from the url
 func GetMarketPrices(
