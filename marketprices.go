@@ -28,14 +28,19 @@ type ItemPrice struct {
 	Value       int   `json:"value"`
 }
 
+// ProductionBackpacktfAPIURL is the existing API URL for backpacktf
+const ProductionBackpacktfAPIURL = "http://backpack.tf/api/IGetMarketPrices/v1"
+
+// BackpacktfAPIURL is a global variable that contains the backpacktf URL
+var BackpacktfAPIURL = ProductionBackpacktfAPIURL
+
 // GetMarketPrices will retrieve prices from the url
 func GetMarketPrices(
-	backpacktfAPIURL string,
 	apiKey string,
 	appID uint32,
 ) (*map[string]ItemPrice, error) {
 
-	if backpacktfAPIURL == "" || apiKey == "" || appID == 0 {
+	if apiKey == "" || appID == 0 {
 		return nil, fmt.Errorf("gobackpacktf GetMarketPrices no parameter can be empty")
 	}
 
@@ -44,7 +49,7 @@ func GetMarketPrices(
 	querystring.Add("appid", strconv.FormatUint(uint64(appID), 10))
 
 	// regular API string is http://backpack.tf/api/IGetMarketPrices/v1/
-	resp, err := http.Get(backpacktfAPIURL + "?" + querystring.Encode())
+	resp, err := http.Get(BackpacktfAPIURL + "?" + querystring.Encode())
 
 	if err != nil {
 		return nil, fmt.Errorf("gobackpacktf GetMarketPrices http.Get: %v", err)

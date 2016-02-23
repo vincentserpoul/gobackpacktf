@@ -40,8 +40,8 @@ loopcases:
 			fmt.Fprintf(w, c.mock())
 		}))
 		defer ts.Close()
-
-		itemPrices, err := GetMarketPrices(ts.URL, c.apiKey, appID)
+		BackpacktfAPIURL = ts.URL
+		itemPrices, err := GetMarketPrices(c.apiKey, appID)
 
 		if c.expectedErr != nil {
 			if err == nil {
@@ -68,7 +68,8 @@ func TestTimeOutGetMarketPrices(t *testing.T) {
 	defer ts.Close()
 	ts.Config.WriteTimeout = 20 * time.Millisecond
 
-	_, err := GetMarketPrices(ts.URL, apiKey, appID)
+	BackpacktfAPIURL = ts.URL
+	_, err := GetMarketPrices(apiKey, appID)
 
 	if err == nil {
 		t.Errorf("GetMarketPrices(): didn't trigger an error whereas it should have")
